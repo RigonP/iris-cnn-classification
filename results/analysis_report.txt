@@ -1,0 +1,35 @@
+================================================================================
+IRIS CLASSIFICATION WITH CNN - COMPREHENSIVE REPORT
+================================================================================
+
+1. EXECUTIVE SUMMARY
+--------------------------------------------------------------------------------
+Best Performing Model: Baseline CNN
+Test Set Accuracy: 100.00%
+LOOCV Accuracy: 96.00%
+
+2. MODEL CONFIGURATION RESULTS
+--------------------------------------------------------------------------------
+Baseline CNN                             Accuracy: 100.00%
+Deep CNN                                 Accuracy: 100.00%
+CNN with L2 Regularization               Accuracy: 100.00%
+CNN without MaxPooling                   Accuracy:  96.67%
+CNN with Tanh Activation                 Accuracy:  86.67%
+
+3. FEATURE IMPORTANCE ANALYSIS
+--------------------------------------------------------------------------------
+Features ranked by importance (as learned by CNN):
+  4. petal width (cm)               Score: 0.4803
+  3. petal length (cm)              Score: 0.3558
+  2. sepal width (cm)               Score: 0.1175
+  1. sepal length (cm)              Score: 0.0464
+
+4. KEY FINDINGS
+--------------------------------------------------------------------------------
+• The CNN successfully learned to classify IRIS species with high accuracy
+• Different hyperparameter configurations showed varying performance
+• LOOCV provided a robust estimate of generalization performance
+• Feature importance analysis revealed which botanical measurements
+  are most discriminative for species classification
+
+================================================================================
