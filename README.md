@@ -150,7 +150,7 @@ Out of 7 misclassifications, 6 occurred at the *versicolor*–*virginica* bounda
   <img src="results/correlation_matrix.png" alt="Pearson correlation matrix" width="60%">
 </p>
 
-Petal length and petal width show very strong correlation (**r = 0.96**), explaining their joint dominance in the model's decisions.
+Petal length and petal width show very strong correlation (**r = 0.94**, computed on the median-imputed dataset), explaining their joint dominance in the model's decisions.
 
 ### Generated Files
 
