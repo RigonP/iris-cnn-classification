@@ -19,6 +19,8 @@ from tensorflow.keras.utils import to_categorical
 import time
 import warnings
 
+from data_loader import load_iris_dataframe, FEATURE_NAMES
+
 warnings.filterwarnings('ignore')
 
 # Set random seeds for reproducibility
@@ -38,29 +40,27 @@ print("=" * 70)
 # 1. DATA LOADING AND PREPROCESSING
 # ============================================================================
 
-def load_iris_data(filepath):
-    """Load and preprocess IRIS dataset"""
+def load_iris_data(filepath=None):
+    """Load and preprocess IRIS dataset from dataset/iris.data.
+
+    The `filepath` argument is kept for backward compatibility but is
+    ignored — the canonical path resolved by data_loader is always used.
+    """
     print("\n[1] Loading IRIS Dataset...")
 
-    # Load data
-    column_names = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'class']
-    df = pd.read_csv(filepath, names=column_names)
+    df = load_iris_dataframe()
 
     print(f"Dataset shape: {df.shape}")
     print(f"\nFirst 5 rows:")
     print(df.head())
     print(f"\nClass distribution:")
     print(df['class'].value_counts())
-    print(f"\nDataset info:")
-    print(df.info())
     print(f"\nStatistical summary:")
-    print(df.describe())
+    print(df[FEATURE_NAMES].describe())
 
-    # Separate features and labels
-    X = df.iloc[:, :-1].values
-    y = df.iloc[:, -1].values
+    X = df[FEATURE_NAMES].values
+    y = df['class'].values
 
-    # Encode labels
     label_encoder = LabelEncoder()
     y_encoded = label_encoder.fit_transform(y)
     y_categorical = to_categorical(y_encoded)
@@ -68,12 +68,10 @@ def load_iris_data(filepath):
     print(f"\nClasses: {label_encoder.classes_}")
     print(f"Encoded labels: {np.unique(y_encoded)}")
 
-    # Normalize features
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
 
-    # Reshape for CNN (samples, height, width, channels)
-    # For IRIS: we'll treat each sample as 2x2 image with 1 channel
+    # Reshape for 2D CNN: 4 features → 2x2x1 "image"
     X_reshaped = X_scaled.reshape(-1, 2, 2, 1)
 
     return X_reshaped, y_categorical, y_encoded, label_encoder, scaler
@@ -406,7 +404,7 @@ def analyze_features(X_original, y_encoded, label_encoder):
     print("FEATURE ANALYSIS")
     print("=" * 70)
 
-    feature_names = ['Sepal Length', 'Sepal Width', 'Petal Length', 'Petal Width']
+    feature_names = list(FEATURE_NAMES)
 
     # Create feature analysis plots
     fig, axes = plt.subplots(2, 2, figsize=(15, 12))
@@ -515,13 +513,12 @@ def train_final_model(X, y, model_creator, model_name, epochs=100):
 def main():
     """Main execution function"""
 
-    # Load data
-    X, y, y_encoded, label_encoder, scaler = load_iris_data('../dataset/iris_clean.data')
+    # Load data from dataset/iris.data (Moodle source)
+    X, y, y_encoded, label_encoder, scaler = load_iris_data()
 
-    # Store original features for analysis
-    df = pd.read_csv('../dataset/iris_clean.data',
-                     names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'class'])
-    X_original = df.iloc[:, :-1].values
+    # Store original (un-scaled) features for analysis
+    df = load_iris_dataframe()
+    X_original = df[FEATURE_NAMES].values
 
     # Analyze features
     analyze_features(X_original, y_encoded, label_encoder)

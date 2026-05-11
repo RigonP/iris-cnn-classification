@@ -2,18 +2,15 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.datasets import load_iris
+
+from data_loader import load_iris_arrays
 
 # Konfigurimi i stilit të grafikëve
 plt.style.use('seaborn-v0_8-darkgrid')
 sns.set_palette("husl")
 
-# Ngarkimi i dataset-it IRIS
-iris = load_iris()
-X = iris.data
-y = iris.target
-feature_names = iris.feature_names
-target_names = iris.target_names
+# Ngarkimi i dataset-it IRIS nga dataset/iris.data (burimi i Moodle)
+X, y, feature_names, target_names = load_iris_arrays()
 
 # Krijimi i një DataFrame për lehtësi në manipulim
 df = pd.DataFrame(X, columns=feature_names)

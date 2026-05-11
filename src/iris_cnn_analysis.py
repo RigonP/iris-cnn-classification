@@ -12,7 +12,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.datasets import load_iris
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.model_selection import LeaveOneOut, train_test_split
 from sklearn.metrics import confusion_matrix, classification_report, accuracy_score
@@ -26,6 +25,7 @@ warnings.filterwarnings('ignore')
 
 # Suppress TensorFlow warnings
 import os
+from data_loader import load_iris_arrays
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 RESULTS_DIR = os.path.join(BASE_DIR, "results")
 
@@ -47,15 +47,12 @@ class IrisDataProcessor:
         self.label_encoder = LabelEncoder()
 
     def load_and_prepare_data(self):
-        """Load IRIS dataset and prepare it for CNN processing"""
-        # Load IRIS dataset
-        iris = load_iris()
-        X = iris.data
-        y = iris.target
+        """Load IRIS dataset from dataset/iris.data (Moodle source).
 
-        # Get feature names and target names
-        feature_names = iris.feature_names
-        target_names = iris.target_names
+        Missing values in the raw file are imputed with the column-wise
+        median by data_loader.load_iris_arrays.
+        """
+        X, y, feature_names, target_names = load_iris_arrays()
 
         print("=" * 70)
         print("IRIS Dataset Information")
