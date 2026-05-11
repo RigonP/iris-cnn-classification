@@ -6,7 +6,7 @@ IRIS CLASSIFICATION WITH CNN - COMPREHENSIVE REPORT
 --------------------------------------------------------------------------------
 Best Performing Model: Baseline CNN
 Test Set Accuracy: 100.00%
-LOOCV Accuracy: 96.00%
+LOOCV Accuracy: 95.33%
 
 2. MODEL CONFIGURATION RESULTS
 --------------------------------------------------------------------------------
@@ -19,10 +19,10 @@ CNN with Tanh Activation                 Accuracy:  86.67%
 3. FEATURE IMPORTANCE ANALYSIS
 --------------------------------------------------------------------------------
 Features ranked by importance (as learned by CNN):
-  4. petal width (cm)               Score: 0.4803
-  3. petal length (cm)              Score: 0.3558
-  2. sepal width (cm)               Score: 0.1175
-  1. sepal length (cm)              Score: 0.0464
+  4. petal width (cm)               Score: 0.5043
+  3. petal length (cm)              Score: 0.3469
+  2. sepal width (cm)               Score: 0.0995
+  1. sepal length (cm)              Score: 0.0493
 
 4. KEY FINDINGS
 --------------------------------------------------------------------------------

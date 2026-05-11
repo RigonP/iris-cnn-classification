@@ -16,16 +16,26 @@ Classification of the IRIS dataset using **Convolutional Neural Networks (CNN)**
 
 ## Overview
 
+<<<<<<< HEAD
 This project implements and compares **five CNN configurations** on the classic IRIS dataset (150 samples, 4 features, 3 species; 9 missing values in the raw file are imputed with the per-feature median at load time, computed exclusively from `iris.data` itself), analyzing the impact of hyperparameter choices and interpreting the features learned by the network. Evaluation is based on **Leave-One-Out Cross-Validation (LOOCV)** and complemented by gradient-based feature importance analysis.
+=======
+This project implements and compares **five CNN configurations** on the classic IRIS dataset (150 samples, 4 features, 3 species), analyzing the impact of hyperparameter choices and interpreting the features learned by the network. Evaluation is based on **Leave-One-Out Cross-Validation (LOOCV)** and complemented by gradient-based feature importance analysis.
+>>>>>>> e3a60a9a00351570905ef6eec5016c5759958768
 
 ### Key Findings
 
 | Metric | Value |
 |---|---|
 | Test set accuracy (Baseline CNN) | **100.00%** |
+<<<<<<< HEAD
 | LOOCV accuracy (150 iterations) | **95.33%** |
 | Most discriminative feature | Petal Width (**50.43%**) |
 | Total petal contribution | **85.12%** of model decisions |
+=======
+| LOOCV accuracy (150 iterations) | **96.00%** |
+| Most discriminative feature | Petal Width (**46.05%**) |
+| Total petal contribution | **82.17%** of model decisions |
+>>>>>>> e3a60a9a00351570905ef6eec5016c5759958768
 
 ### Compared Architectures
 
@@ -49,9 +59,15 @@ DP-2026-RigonPira/
 │   ├── iris_cnn_loocv.py          # Leave-One-Out Cross-Validation
 │   ├── advanced_analysis_CNN.py   # Visualization and deep analysis
 │   ├── dataset_description.py     # Dataset exploration
+<<<<<<< HEAD
 │   └── data_loader.py             # Centralized loader for dataset/iris.data
 ├── dataset/
 │   └── iris.data                  # IRIS dataset (provided on Moodle)
+=======
+│   └── iris_clean.py              # Data preprocessing
+├── dataset/
+│   └── iris.data                  # IRIS dataset (UCI ML Repository)
+>>>>>>> e3a60a9a00351570905ef6eec5016c5759958768
 ├── results/                       # Generated figures and reports
 └── README.md
 ```
@@ -112,7 +128,11 @@ The script will:
 
 1. Load and visualize the IRIS dataset
 2. Train and compare all 5 CNN configurations
+<<<<<<< HEAD
 3. Run LOOCV on the best-performing model (~60 minutes on CPU)
+=======
+3. Run LOOCV on the best-performing model (~14 minutes on CPU)
+>>>>>>> e3a60a9a00351570905ef6eec5016c5759958768
 4. Generate gradient-based feature importance and internal model visualizations
 5. Save all plots and a textual report into `results/`
 
@@ -134,7 +154,11 @@ The dataset is perfectly balanced (50 samples per class). *Iris setosa* is linea
   <img src="results/comprehensive_comparison.png" alt="CNN configuration comparison" width="85%">
 </p>
 
+<<<<<<< HEAD
 Three configurations achieved perfect test accuracy (100%) — Baseline, Deep, and L2-Regularized CNN. The No-MaxPooling variant reached 96.67%, while the Tanh variant lagged behind at 86.67% due to the vanishing gradient problem.
+=======
+Three configurations achieved perfect test accuracy (100%); the Tanh variant underperformed at 76.67% due to the vanishing gradient problem.
+>>>>>>> e3a60a9a00351570905ef6eec5016c5759958768
 
 ### LOOCV Confusion Matrix
 
@@ -142,7 +166,11 @@ Three configurations achieved perfect test accuracy (100%) — Baseline, Deep, a
   <img src="results/confusion_matrix_loocv.png" alt="LOOCV confusion matrix" width="55%">
 </p>
 
+<<<<<<< HEAD
 Out of 7 misclassifications, 6 occurred at the *versicolor*–*virginica* boundary — a known taxonomic challenge — while *Iris setosa* was classified with 98% recall (49/50 samples correct).
+=======
+All 6 misclassifications occurred at the *versicolor*–*virginica* boundary — a known taxonomic challenge — with **perfect classification** of all 50 *Iris setosa* samples.
+>>>>>>> e3a60a9a00351570905ef6eec5016c5759958768
 
 ### Feature Correlation
 
@@ -170,7 +198,10 @@ After execution, the `results/` folder contains:
 
 ## Methodology Highlights
 
+<<<<<<< HEAD
 - **Median imputation** of 9 missing values in the raw `iris.data` file (computed per-feature from the file itself; no external dataset is referenced at any stage)
+=======
+>>>>>>> e3a60a9a00351570905ef6eec5016c5759958768
 - **Stratified 80/20 train-test split** preserving class distribution
 - **Z-score standardization** of input features
 - **Adam optimizer** (lr = 0.001) with categorical cross-entropy loss
@@ -182,9 +213,15 @@ After execution, the `results/` folder contains:
 
 ## Dataset
 
+<<<<<<< HEAD
 Source: IRIS dataset provided on the course Moodle page (originally from the [UCI Machine Learning Repository — Iris](https://archive.ics.uci.edu/dataset/53/iris)).
 
 The `dataset/iris.data` file is included in this repository for direct reproducibility. The raw file contains nine missing values (encoded as `NaN` or `?`); these are imputed at load time using the column-wise median, computed exclusively from `iris.data` itself. No other data source is used at any stage of the pipeline.
+=======
+Source: [UCI Machine Learning Repository — Iris](https://archive.ics.uci.edu/dataset/53/iris)
+
+The `dataset/iris.data` file is included in this repository for direct reproducibility.
+>>>>>>> e3a60a9a00351570905ef6eec5016c5759958768
 
 ---
 
