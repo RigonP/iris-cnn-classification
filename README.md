@@ -46,7 +46,7 @@ DP-2026-RigonPira/
 ├── src/
 │   ├── run_analysis.py            # Entry point — runs the full pipeline
 │   ├── iris_cnn_analysis.py       # CNN models and training logic
-│   ├── iris_cnn_loocv.py          # Leave-One-Out Cross-Validation
+│   ├── iris_cnn_loocv.py          # Standalone alternative LOOCV script (not used by run_analysis)
 │   ├── advanced_analysis_CNN.py   # Visualization and deep analysis
 │   ├── dataset_description.py     # Dataset exploration
 │   └── data_loader.py             # Centralized loader for dataset/iris.data

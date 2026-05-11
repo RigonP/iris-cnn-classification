@@ -199,7 +199,7 @@ def run_complete_analysis():
     ]
 
     for filename in saved_files:
-        print(f"  ✓ {filename}")
+        print(f"  - {filename}")
 
     print("=" * 80)
 
@@ -230,26 +230,18 @@ def run_complete_analysis():
 if __name__ == "__main__":
     import sklearn
 
-    print("""
-    ╔══════════════════════════════════════════════════════════════════════════╗
-    ║                                                                          ║
-    ║         DEEP LEARNING LAB PROJECT - PART 1                               ║
-    ║         IRIS Classification with Convolutional Neural Networks           ║
-    ║                                                                          ║
-    ║         University of Business and Technology (UBT)                      ║
-    ║         Winter Term 2025/2026                                            ║
-    ║                                                                          ║
-    ╚══════════════════════════════════════════════════════════════════════════╝
-    """)
+    print("=" * 80)
+    print("IRIS Classification with Convolutional Neural Networks")
+    print("=" * 80)
 
     try:
         analysis_results = run_complete_analysis()
 
-        print("\n" + "🎉" * 40)
-        print("\n✓ ANALYSIS COMPLETED SUCCESSFULLY!")
-        print("\n" + "🎉" * 40)
+        print("\n" + "=" * 80)
+        print("ANALYSIS COMPLETED SUCCESSFULLY")
+        print("=" * 80)
 
     except Exception as e:
-        print(f"\n❌ Error occurred during analysis: {e}")
+        print(f"\nError occurred during analysis: {e}")
         import traceback
         traceback.print_exc()

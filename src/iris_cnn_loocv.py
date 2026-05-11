@@ -1,8 +1,5 @@
 """
-Deep Learning Lab - Part 1: CNN on IRIS Dataset
-Author: [Your Name]
-Date: February 2026
-Description: Implementation of CNN with LOOCV for IRIS classification
+Implementation of CNN with LOOCV for IRIS classification
 """
 
 import numpy as np

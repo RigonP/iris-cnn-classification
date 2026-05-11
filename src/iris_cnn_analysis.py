@@ -1,9 +1,4 @@
 """
-Deep Learning Lab Project - Part 1: IRIS Classification with CNN
-Author: [Your Name]
-Date: February 2026
-Python Version: 3.10+
-
 This script implements a comprehensive CNN-based classification system for the IRIS dataset
 with Leave-One-Out Cross-Validation (LOOCV) and extensive hyperparameter experimentation.
 """
